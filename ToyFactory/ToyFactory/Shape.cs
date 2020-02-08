@@ -9,7 +9,7 @@ namespace ToyFactory
     {
         public string ShapeName { get; set; }
         public string Color { get; set; }
-        public int Count { get; set; }
+        public int? Count { get; set; }
         public decimal Cost { get; set; }
 
         public static decimal SurgePrice = 1;
@@ -32,9 +32,9 @@ namespace ToyFactory
         }
 
         
-        public static int GetTotalNumberOfShapes(List<Shape> shapeList)
+        public static int? GetTotalNumberOfShapes(List<Shape> shapeList)
         {
-            int count = 0;
+            int? count = 0;
             foreach (var shape in shapeList)
             { 
                 count += shape.Count;

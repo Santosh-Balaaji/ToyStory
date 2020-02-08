@@ -9,7 +9,7 @@ namespace ToyFactory
         
         public void GenerateReport(Order order)
         {
-            decimal totalCost = 0;
+            decimal? totalCost = 0;
             Console.WriteLine("# Invoice Report");
             Console.WriteLine("Name: {0}", order.CustomerName);
             Console.WriteLine("Address: {0}",order.Address);

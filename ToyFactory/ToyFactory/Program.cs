@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ToyFactory
 {
@@ -7,6 +8,7 @@ namespace ToyFactory
     {
         static void Main(string[] args)
         {
+            int count;
             
             Square redSquare = new Square("Red");
             Square bluesSquare = new Square("Blue");
@@ -40,32 +42,19 @@ namespace ToyFactory
             shapeList.Add(triangleList);
 
 
-            Console.WriteLine("### Example input");
-            Console.WriteLine("~~~");
-            Console.WriteLine("Welcome to the Toy Block Factory!");
-
-
             
-            Console.WriteLine("Please input your Name:");
-            var customerName = Console.ReadLine();
-            Console.WriteLine("Please input your Address:");
-            var address = Console.ReadLine();
-            Console.WriteLine("Please input your Due Date");
-            var dueDate = Console.ReadLine();
 
             Order order = new Order(customerName,address,dueDate,shapeList);
-
-
+            
             foreach (var item in shapeList)
             {
                 for (int i = 0; i < shapeList.Count; i++)
                 {
                     Console.WriteLine("Please input the number of {0} {1}s", item[i].Color, item[i].ShapeName);
-                    item[i].Count = Convert.ToInt32(Console.ReadLine());
-
+                    Int32.TryParse(Console.ReadLine(), out count);
+                    item[i].Count = count;
                 }
             }
-
             InvoiceReport invoice = new InvoiceReport();
             invoice.GenerateReport(order);
             CuttingReport cuttingReport = new CuttingReport();
@@ -77,5 +66,23 @@ namespace ToyFactory
 
 
         }
+        public void GetUserDetails() 
+        {
+            Console.WriteLine("### Example input");
+            Console.WriteLine("~~~");
+            Console.WriteLine("Welcome to the Toy Block Factory!");
+            
+            Console.WriteLine("Please input your Name:");
+            var customerName = Console.ReadLine();
+            
+            Console.WriteLine("Please input your Address:");
+            var address = Console.ReadLine();
+            
+            Console.WriteLine("Please input your Due Date");
+            var dueDate = Console.ReadLine();
+            
+        }
+
+        
     }
 }
