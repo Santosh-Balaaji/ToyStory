@@ -23,7 +23,7 @@ namespace ToyFactory
                 {
                     if (shape[i].Color == color)
                     {
-                        count += shape.Count;
+                        count ++;
                     }
                 }
             }

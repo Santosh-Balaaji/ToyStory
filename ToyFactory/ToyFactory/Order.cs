@@ -18,14 +18,7 @@ namespace ToyFactory
         {
 
         }
-        public Order(string customerName, string address,string dueDate, List<List<Shape>> shapeList)
-        {
-            CustomerName = customerName;
-            Address = address;
-            DueDate = dueDate;
-            ShapeList = shapeList;
-
-        }
+       
 
         public static string GenerateOrderID()
         {
